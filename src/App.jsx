@@ -18,6 +18,7 @@ function App() {
       <div className="flex w-full justify-center">
         <kbd className="kbd">▼</kbd>
       </div>
+      <h2 className='text-7xl text-blue-400 font-extrabold '>hi</h2>
     </>
   )
 }
