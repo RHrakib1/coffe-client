@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Addcoffe from './Component/Addcoffe.jsx';
 import Updatecoffe from './Component/Updatecoffe.jsx';
+import ViewCoffe from './Component/ViewCoffe.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/addcoffe',
-    element: <Addcoffe></Addcoffe>
+    element: <Addcoffe></Addcoffe>,
+
+  },
+  {
+    path: '/viewcoffe',
+    element:<ViewCoffe></ViewCoffe>,
+     loader:()=> fetch('http://localhost:5000/postcoffedata')
   },
   {
     path: '/updatecoffe',
