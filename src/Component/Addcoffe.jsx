@@ -10,6 +10,21 @@ export default function Addcoffe() {
         const catagory = datastore.catagory.value
         const objdata = { name, able, supply, catagory }
         console.log(objdata)
+        fetch('http://localhost:5000/postcoffedata',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(objdata)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                alert('the data collectet in mongodb data base')
+            }
+
+        })
     }
     return (
         <div className='bg-gray-300 p-24 max-w-5xl rounded-4xl m-auto mt-10'>
