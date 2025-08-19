@@ -4,27 +4,23 @@ import { GrView } from "react-icons/gr";
 import { FiEdit } from "react-icons/fi";
 
 
-export default function Coffe({ Coffe }) {
+export default function Coffe({ Coffe, heandelDelete }) {
     const { _id, name, able, supply, catagory, photourl } = Coffe
-
-    const heandelDelete = id => {
-        console.log('the deletet id is a :', id)
-        fetch(`http://localhost:5000/postcoffedata/${id}`, {
-            method: "DELETE"
+    const confirmDelete = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "This coffee will be deleted!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                heandelDelete(id)
+                Swal.fire('Deleted!', 'Your coffee has been deleted.', 'success')
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: 'Delete!',
-                        text: 'You have successsully delete',
-                        icon: 'warning',
-                        confirmButtonText: 'Cool'
-                    })
-                }
-            })
     }
+
     return (
         <div>
             <div className="flex gap-3 bg-gray-700 shadow-xl">
@@ -38,7 +34,7 @@ export default function Coffe({ Coffe }) {
                     <div className="card-actions flex flex-col justify-end">
                         <button className="btn btn-primary"><FiEdit className='text-xl'></FiEdit></button>
                         <button className="btn btn-primary"><GrView className='text-xl'></GrView></button>
-                        <button onClick={() => heandelDelete(_id)} className="btn btn-primary"><RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line></button>
+                        <button onClick={() => confirmDelete(_id)} className="btn btn-primary"><RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line></button>
                     </div>
                 </div>
             </div>
