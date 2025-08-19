@@ -23,7 +23,7 @@ export default function Coffe({ Coffe, heandelDelete }) {
 
     return (
         <div>
-            <div className="flex gap-3 bg-gray-700 shadow-xl">
+            <div className="flex gap-3 bg-gray-700 shadow-xl items-center rounded-xl p-4 transition-all duration-300 transform hover:scale-105   hover:shadow-2xl hover:bg-gray-600">
                 <img className='w-30' src={photourl} alt="coffe" />
                 <div>
                     <h2 className="card-title"><span className='font-bold'>Name:</span> {name}</h2>

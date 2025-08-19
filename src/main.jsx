@@ -9,6 +9,7 @@ import {
 import Addcoffe from './Component/Addcoffe.jsx';
 import Updatecoffe from './Component/Updatecoffe.jsx';
 import ViewCoffe from './Component/ViewCoffe.jsx';
+import { Features } from 'tailwindcss';
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/viewcoffe',
-    element:<ViewCoffe></ViewCoffe>,
-     loader:()=> fetch('http://localhost:5000/postcoffedata')
+    element: <ViewCoffe></ViewCoffe>,
+    loader: () => fetch('http://localhost:5000/postcoffedata')
   },
   {
-    path: '/updatecoffe',
-    element: <Updatecoffe></Updatecoffe>
+    path: `/updatecoffe/:${id}`,
+    element: <Updatecoffe></Updatecoffe>,
+    loader: ({ params }) => fetch(`http://localhost:5000/updatedata/${params.id}`)
   }
 ]);
 

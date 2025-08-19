@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom"
 import Coffe from "./Coffe"
 import { useState } from "react"
-import Swal from 'sweetalert2'
 
 
 export default function ViewCoffe() {
