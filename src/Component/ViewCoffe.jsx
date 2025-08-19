@@ -16,12 +16,7 @@ export default function ViewCoffe() {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount > 0) {
-                    Swal.fire({
-                        title: 'Delete!',
-                        text: 'You have successsully delete',
-                        icon: 'warning',
-                        confirmButtonText: 'Cool'
-                    })
+
                     const dataremainnning = newdata.filter(d => d._id !== id)
                     setnewdata(dataremainnning)
                 }
