@@ -1,4 +1,4 @@
-import React from 'react'
+import Swal from 'sweetalert2'
 
 export default function Addcoffe() {
     const hendlesubmit = e => {
@@ -22,13 +22,20 @@ export default function Addcoffe() {
             .then(data => {
                 console.log(data)
                 if (data.insertedId) {
-                    alert('the data collectet in mongodb data base')
+                    Swal.fire({
+                        title: 'success!',
+                        text: 'User Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
                 }
+                
+
 
             })
     }
     return (
-        <div className='bg-gray-300 p-24 max-w-5xl rounded-4xl m-auto mt-10'>
+        <div className='bg-gray-500 p-24 max-w-5xl rounded-4xl m-auto mt-10'>
             <h1 className='text-3xl font-bold text-center mb-5'>Add Coffee</h1>
             <form onSubmit={hendlesubmit} >
                 {/* {row no 1} */}
@@ -65,7 +72,10 @@ export default function Addcoffe() {
                         </div>
                     </div>
                 </div>
-                <input type="text" name='photourl' placeholder='input you photo' className='w-full border p-2' />
+                <div className='flex gap-2 items-center'>
+                    <h2 className='mr-2'>Photo:</h2>
+                    <input type="text" name='photourl' placeholder='input you photo' className='w-full border p-2 mb-4' />
+                </div>
                 <input type="submit" value='ADD COFFEE' className='btn btn-block' />
             </form>
         </div>
