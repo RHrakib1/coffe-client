@@ -8,23 +8,24 @@ export default function Addcoffe() {
         const able = datastore.able.value
         const supply = datastore.supply.value
         const catagory = datastore.catagory.value
-        const objdata = { name, able, supply, catagory }
+        const photourl = datastore.photourl.value
+        const objdata = { name, able, supply, catagory, photourl }
         console.log(objdata)
-        fetch('http://localhost:5000/postcoffedata',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('http://localhost:5000/postcoffedata', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(objdata)
+            body: JSON.stringify(objdata)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            if(data.insertedId){
-                alert('the data collectet in mongodb data base')
-            }
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    alert('the data collectet in mongodb data base')
+                }
 
-        })
+            })
     }
     return (
         <div className='bg-gray-300 p-24 max-w-5xl rounded-4xl m-auto mt-10'>
@@ -64,6 +65,7 @@ export default function Addcoffe() {
                         </div>
                     </div>
                 </div>
+                <input type="text" name='photourl' placeholder='input you photo' className='w-full border p-2' />
                 <input type="submit" value='ADD COFFEE' className='btn btn-block' />
             </form>
         </div>
