@@ -4,19 +4,18 @@ export default function Coffe({ Coffe }) {
     const { id, name, able, supply, catagory, photourl } = Coffe
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-sm">
-                <figure>
-                    <img
-                        src={photourl}
-                        alt="coffe" />
-                </figure>
+            <div className="flex gap-3 bg-gray-700 shadow-xl">
+                <img className='w-30' src={photourl} alt="coffe" />
+                <div>
+                    <h2 className="card-title"><span className='font-bold'>Name:</span> {name}</h2>
+                    <p><span className='font-bold'>Catagory:</span> {catagory}</p>
+                    <p><span className='font-bold'>Supply</span> {supply}</p>
+                </div>
                 <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>{catagory}</p>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions flex flex-col justify-end">
                         <button className="btn btn-primary">Edit</button>
                         <button className="btn btn-primary">View</button>
-                        <button className="btn btn-primary">Delet</button>
+                        <button className="btn btn-primary">Delete</button>
                     </div>
                 </div>
             </div>
