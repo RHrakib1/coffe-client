@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Authcontext } from '../Provider/AuthProvider'
 
 export default function Register() {
+    const { createUser } = useContext(Authcontext)
     const handleregister = e => {
         e.preventDefault()
         const netdata = e.target
@@ -8,7 +10,16 @@ export default function Register() {
         const password = netdata.password.value
         const objdata = { email, password }
         console.log(objdata)
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
+
+
     return (
         <div>
             <form onSubmit={handleregister} className="hero bg-base-200 min-h-screen">
