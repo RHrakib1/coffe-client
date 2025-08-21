@@ -9,6 +9,8 @@ import {
 import Addcoffe from './Component/Addcoffe.jsx';
 import Updatecoffe from './Component/Updatecoffe.jsx';
 import ViewCoffe from './Component/ViewCoffe.jsx';
+import Register from './Component/Register.jsx';
+import Login from './Component/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +31,15 @@ const router = createBrowserRouter([
     path: `/updatecoffe/:id`,
     element: <Updatecoffe></Updatecoffe>,
     loader: ({ params }) => fetch(`http://localhost:5000/postcoffedata/${params.id}`)
-  }
+  },
+  {
+    path: '/register',
+    element: <Register></Register>
+  },
+  {
+    path: '/login',
+    element: <Login></Login>
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
