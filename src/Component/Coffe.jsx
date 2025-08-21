@@ -2,6 +2,7 @@ import Swal from 'sweetalert2'
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { GrView } from "react-icons/gr";
 import { FiEdit } from "react-icons/fi";
+import { Link } from 'react-router-dom';
 
 
 export default function Coffe({ Coffe, heandelDelete }) {
@@ -32,7 +33,7 @@ export default function Coffe({ Coffe, heandelDelete }) {
                 </div>
                 <div className="card-body">
                     <div className="card-actions flex flex-col justify-end">
-                        <button className="btn btn-primary"><FiEdit className='text-xl'></FiEdit></button>
+                        <Link to={`/updatecoffe/${_id}`}><button className="btn btn-primary"><FiEdit className='text-xl'></FiEdit></button></Link>
                         <button className="btn btn-primary"><GrView className='text-xl'></GrView></button>
                         <button onClick={() => confirmDelete(_id)} className="btn btn-primary"><RiDeleteBin6Line className='text-xl'></RiDeleteBin6Line></button>
                     </div>

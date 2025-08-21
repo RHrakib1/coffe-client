@@ -24,12 +24,12 @@ export default function Addcoffe() {
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'success!',
-                        text: 'User Added Successfully',
+                        text: 'Coffe Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
                 }
-                
+
 
 
             })
