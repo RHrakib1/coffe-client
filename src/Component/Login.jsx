@@ -1,4 +1,6 @@
-import React from 'react'
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
+import React, { useState } from 'react'
+import auth from '../Firebase/Firebase.config'
 
 export default function Login() {
     const handlelogin = e => {
@@ -8,6 +10,17 @@ export default function Login() {
         const password = netdata.password.value
         const objdata = { email, password }
         console.log(objdata)
+    }
+    const provider = new GoogleAuthProvider()
+    const [user, setuser] = useState(null)
+    const googleAuth = () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <div>
@@ -28,6 +41,7 @@ export default function Login() {
                                 <input type="password" name='password' className="input" placeholder="Password" />
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Login</button>
+                                <button className='btn' onClick={googleAuth}>Google Auth</button>
                             </fieldset>
                         </div>
                     </div>
